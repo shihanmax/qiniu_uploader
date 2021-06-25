@@ -2,8 +2,7 @@
 # flake8: noqa
 import logging
 
-from qiniu import Auth, put_file, etag
-import qiniu.config
+from qiniu import Auth, put_file
 from datetime import datetime
 
 logger = logging.getLogger(__name__)
