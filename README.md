@@ -40,3 +40,11 @@ curl -X POST -F 'image=@hello.png' http://localhost:8088
     "info": "error info",
 }
 ```
+
+4. 添加一个alias，方便随时访问，编辑`~/.bash_profile`，新增一行：
+
+```bash
+# !以下ip, port替换为自己部署的服务器地址和端口
+alias upload='function up() { curl -X POST -F "image=@$1" http://ip:port; }; up'
+```
+刷新一下：`source ~/.bash_profile`，然后就可以在任何一个路径下进行上传操作了：`upload test.png`
