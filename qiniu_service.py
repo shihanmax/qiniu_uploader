@@ -10,8 +10,20 @@ logger = logging.getLogger(__name__)
 
 
 class QiniuService(object):
-    
-    def __init__(self, ak, sk, domain, bucket):
+
+    def __init__(self, ak, sk, domain, bucket=None):
+        """Init a qiniu file uploading service.
+
+        Args:
+            ak (str): access key
+            sk (str): secret key
+            domain (str): your binding domain address for fetching 
+                          uploading files
+            bucket (str, optional): default bucket name, if you want to specify 
+                                    different buckets, keep it None and pass 
+                                    your bucket name to upload_picture().
+                                    Defaults to None.
+        """
         self.auth = Auth(ak, sk)
         self.domain = domain
         self.bucket = bucket
@@ -45,8 +57,6 @@ class QiniuService(object):
         
         message = {
             "status_code": code,
-            "hash": result["hash"],
-            "upload_name": result["key"],
             "link": link,
             "markdown_link": f"![{target_name}]({link})",
             "html_link": f"<img src='{link}' alt='{target_name}' "

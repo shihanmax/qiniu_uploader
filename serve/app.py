@@ -2,7 +2,7 @@ import os
 import sys
 import logging
 from PIL import Image
-from flask import Flask, render_template, request
+from flask import Flask, request
 
 sys.path.append("../..")
 from qiniu_uploader.qiniu_service import QiniuService
