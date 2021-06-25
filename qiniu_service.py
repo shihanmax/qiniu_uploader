@@ -39,7 +39,7 @@ class QiniuService(object):
         code = info.status_code
         
         if code != 200:
-            return {"status_code": code}
+            return {"status_code": code, "info": info}
         
         link = self.domain + "/" + result["key"]
         

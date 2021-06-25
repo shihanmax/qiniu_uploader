@@ -34,6 +34,6 @@ def upload():
     if msg.get("status_code") == 200:
         logger.info(f"SUCCEED|link:{msg.get('link')}|hash:{msg.get('hash')}")
     else:
-        logger.error("FAILED")  # todo add error info
+        logger.error(f"FAILED|info:{msg.get('info')}")
         
     return msg
